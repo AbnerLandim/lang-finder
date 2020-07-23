@@ -2,10 +2,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 70vw;
-    max-width: 1120px;
-    height: 80vh;
-    max-height: 860px;
+    width: 60vw;
+    max-width: 640px;
+    height: 70vh;
+    max-height: 400px;
     transform: translate(-50%, -50%);
     background: #FFFBF3;
     border-radius: 6px;
@@ -21,7 +21,7 @@
 .main-container .content-container header {
     display: flex;
     width: 100%;
-    max-width: 1100px;
+    max-width: 900px;
     padding: 10px;
     justify-content: center;
     align-items: center;
@@ -40,39 +40,30 @@
 }
 
 .control-container {
-    min-height: 80px;
-    border-radius: 6px;
+    padding: 5px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    padding: 15px;
-}
-
-.control-container section {
-    padding: 10px;
-    margin: 5px;
-    width: 50%;
-    display: flex;
     justify-content: center;
 }
 
-.control-container section select {
+.control-container select {   
     width: 80%;
     max-width: 360px;
     height: 35%;
     min-height: 36px;
+    margin: 15px;
 }
 
-.control-container section span {
+.main-container .message-container {
     font-weight: 500;
     color: #424242;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.data-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #b1b1b1;
+.main-container .message-container span {
+    width: 80%;
+    max-width: 420px;
 }

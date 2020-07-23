@@ -5,8 +5,8 @@ module.exports = {
 
     async index(req, res) {
         try {
-            const page = req.param("page");
-            const language = req.param("language");
+            const page = req.params["page"];
+            const language = req.params["language"];
 
             const data = await api.get('https://api.github.com/search/repositories?q=language:'+language+'&order=desc&per_page=5&page='+page);
 
