@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './styles.css';
 import Logo from '../../assets/github-logo.svg';
+import { FiSearch } from 'react-icons/fi';
 
 export default function Main() {
 
-    //codificação
-    localStorage.setItem('language', 'python');
+    const [lang, setLang] = useState('');
+    const history = new useHistory();
+
+    function search() {
+        localStorage.setItem('language', lang);
+        history.push('list');
+    }
 
     return (
         <div className='main-container'>
@@ -21,12 +28,15 @@ export default function Main() {
                 </div>
 
                 <div className='control-container'>
-
-                    <select>
-                        <option value="" disabled selected hidden>Select language...</option>
-                    </select>
-
+                    <input 
+                        placeholder="Select language..." 
+                        onChange={e => setLang(e.target.value)}
+                    />
+                    <button onClick={search}>
+                        <FiSearch size={18} color='#ffffff'/>
+                    </button>
                 </div>
+
             </div>
         </div>
     );

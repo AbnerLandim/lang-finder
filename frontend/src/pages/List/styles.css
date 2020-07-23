@@ -7,7 +7,7 @@
     height: 90vh;
     max-height: 580px;
     transform: translate(-50%, -50%);
-    background: #FFFBF3;
+    background: #3f3f3f;
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -16,18 +16,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #333235;
+    color: #dfdfdf;
     font-size: 36px;
     font-weight: 700;
     font-style: italic;
     margin: 30px;
 }
 
+.outer-container .title-decor {
+    color: #9a63c7;
+}
+
 .outer-container .back-link {
     display: flex;
     align-items: left;
     margin-top: 20px;
-    color: gray;
+    color: rgb(182, 182, 182);
     font-size: 18px;
     text-decoration: none;
     font-weight: 500;
@@ -38,14 +42,13 @@
 }
 
 .outer-container .back-link:hover {
-    opacity: 0.8;
-    
-    transition: filter 0.3s;
+    opacity: 0.5;
+    transition: filter 0.4s;
 }
 
 #subtitle {
     font-weight: 700;
-    color: #424242;
+    color: #e7e7e7;
     font-size: 18px;
     margin-left: 20px;
 }
@@ -64,15 +67,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(207, 1, 207);
+    background-color: #8059A0;
     border-radius: 2px;
     padding-left: 2px;
     padding-right: 2px;
     width: 6vw;
     min-width: 64px;
     height: 4vh;
-    max-height: 20px;
-    
+    max-height: 20px;    
 }
 
 .stars-div:hover {
@@ -101,8 +103,7 @@
 .outer-container .repo-container ul li {
     padding: 10px;
     border-radius: 4px;
-    
-    border-bottom: 1px solid rgb(226, 226, 226);
+    border-bottom: 1px solid rgb(82, 82, 82);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -119,19 +120,19 @@
 }
 
 .outer-container .repo-container ul li:hover {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 2px 4px 0 rgba(128, 128, 128, 0.2), 0 3px 10px 0 rgba(128, 128, 128, 0.19);   
 }
 
 .outer-container .repo-container section span {
     font-weight: 500;
-    color: #424242;
+    color: #bdbdbd;
     margin-left: 18px;
 }
 
 #description {
     font-size: 1vw;
     font-weight: 500;
-    color: #666666;
+    color: #a5a5a5;
     width: 220px;
     margin-left: 30px;
     white-space: nowrap;
@@ -179,10 +180,15 @@
 .outer-container .footer-container span {
     margin: 10px;
     font-weight: 700;
-    color: #424242;
+    color: #535353;
 }
 
 .outer-container .footer-container input {
     width: 50px;
+    height: 30px;
     text-align: center;
+    border: 1px solid #535353;
+    border-radius: 2px;
+    background-color: #585858;
+    color: #d8d8d8;
 }
