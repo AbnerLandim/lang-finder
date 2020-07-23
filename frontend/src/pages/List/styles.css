@@ -2,13 +2,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 60vw;
-    max-width: 560px;
-    height: 80vh;
-    max-height: 600px;
+    width: 90vw;
+    max-width: 660px;
+    height: 90vh;
+    max-height: 580px;
     transform: translate(-50%, -50%);
     background: #FFFBF3;
-    border-radius: 6px;
+    border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -19,7 +19,28 @@
     color: #333235;
     font-size: 36px;
     font-weight: 700;
-    padding: 30px;
+    font-style: italic;
+    margin: 30px;
+}
+
+.outer-container .back-link {
+    display: flex;
+    align-items: left;
+    margin-top: 20px;
+    color: gray;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.outer-container .back-link:hover {
+    opacity: 0.8;
+    
+    transition: filter 0.3s;
 }
 
 #subtitle {
@@ -39,6 +60,32 @@
     max-height: 360px;
 }
 
+.outer-container .repo-container .stars-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(207, 1, 207);
+    border-radius: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    width: 6vw;
+    min-width: 64px;
+    height: 4vh;
+    max-height: 20px;
+    
+}
+
+.stars-div:hover {
+    filter: brightness(75%);
+    transition: filter 0.3s;
+}
+
+.outer-container .repo-container .stars-div span {
+    font-weight: 500;
+    font-size: 1vw;
+    color: white;
+}
+
 .outer-container .repo-container img {
     width: 30px;
     height: 30px;
@@ -52,22 +99,90 @@
 }
 
 .outer-container .repo-container ul li {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid rgb(214, 214, 214);
+    padding: 10px;
+    border-radius: 4px;
+    
+    border-bottom: 1px solid rgb(226, 226, 226);
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    height: 70px;
+ 
+}
+
+.outer-container .repo-container ul li section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
 
 .outer-container .repo-container ul li:hover {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
-.outer-container .repo-container span {
+.outer-container .repo-container section span {
     font-weight: 500;
     color: #424242;
-    margin-left: 20px;
+    margin-left: 18px;
+}
+
+#description {
+    font-size: 1vw;
+    font-weight: 500;
+    color: #666666;
+    width: 220px;
+    margin-left: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .hyperlink {
     text-decoration: none;
+}
+
+.outer-container .footer-container {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.outer-container .footer-container button {
+    border: none;
+    color: white;
+    font-weight: 700;
+    background-color: #797979;
+    border-radius: 2px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.outer-container .footer-container button:hover {
+    filter: brightness(75%);
+    transition: filter 0.3s;
+}
+
+.outer-container .footer-container .next-button {
+    margin-left: 50px;
+    
+}
+
+.outer-container .footer-container .prev-button {
+    margin-right: 50px;
+}
+
+.outer-container .footer-container span {
+    margin: 10px;
+    font-weight: 700;
+    color: #424242;
+}
+
+.outer-container .footer-container input {
+    width: 50px;
+    text-align: center;
 }

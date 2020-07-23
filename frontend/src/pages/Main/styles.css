@@ -2,13 +2,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 60vw;
+    width: 40vw;
     max-width: 640px;
-    height: 70vh;
+    height: 50vh;
     max-height: 400px;
     transform: translate(-50%, -50%);
     background: #FFFBF3;
-    border-radius: 6px;
+    border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

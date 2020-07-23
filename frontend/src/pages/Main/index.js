@@ -5,7 +5,7 @@ import Logo from '../../assets/github-logo.svg';
 export default function Main() {
 
     //codificação
-    localStorage.setItem('language', 'javascript');
+    localStorage.setItem('language', 'python');
 
     return (
         <div className='main-container'>

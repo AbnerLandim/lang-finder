@@ -18,6 +18,7 @@ module.exports = {
                     "avatar_url" : item["owner"]["avatar_url"],
                     "created_at" : item["created_at"],
                     "updated_at" : item["updated_at"],
+                    "stars_count" : item["stargazers_count"],
                 }
             })
           
