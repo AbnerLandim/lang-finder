@@ -192,3 +192,16 @@
     background-color: #585858;
     color: #d8d8d8;
 }
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sorry-msg {
+    color: #dfdfdf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

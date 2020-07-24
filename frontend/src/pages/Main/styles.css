@@ -4,7 +4,7 @@
     left: 50%;
     width: 40vw;
     max-width: 640px;
-    height: 40vh;
+    height: 42vh;
     max-height: 400px;
     transform: translate(-50%, -50%);
     background: #3f3f3f;
@@ -14,7 +14,9 @@
 
 .main-container .content-container {
     width: 100%;
+    max-width: 610px;
     height: 100%;
+    max-height: 380px;
     padding: 30px;
 }
 
@@ -87,4 +89,16 @@
 .control-container button:hover {
     filter: brightness(75%);
     transition: filter 0.4s;
+}
+
+.footer-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.footer-div a {
+    margin-left: 8px;
+    margin-right: 8px;
 }

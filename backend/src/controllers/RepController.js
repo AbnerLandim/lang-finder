@@ -15,8 +15,6 @@ module.exports = {
                     "description" : item["description"],
                     "url" : item["html_url"],
                     "avatar_url" : item["owner"]["avatar_url"],
-                    "created_at" : item["created_at"],
-                    "updated_at" : item["updated_at"],
                     "stars_count" : item["stargazers_count"],
                 }
             })
@@ -25,6 +23,8 @@ module.exports = {
 
         } catch (error) {
             console.error(error);
+            //res.status(404).send("Oh uh, something went wrong");
+            return res.status(404).json( {'message':'There is no match for your search.'} );
         }
     }
 }
