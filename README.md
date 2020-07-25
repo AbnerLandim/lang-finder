@@ -56,7 +56,11 @@ $ npm i
 
 # Run the API
 $ npm start
+```
 
+Open another terminal
+
+```
 # Access the frontend
 $ cd lang-finder/frontend
 
@@ -66,7 +70,8 @@ $ npm i
 # Run the app
 $ npm start
 ```
-Made with ♥ by Abner Landim :wave: [Get in touch!](https://www.linkedin.com/in/abner-landim-siqueira)
+
+Made by Abner Landim :wave: [Get in touch!](https://www.linkedin.com/in/abner-landim-siqueira)
 
 [nodejs]: https://nodejs.org/
 [npm]: https://www.npmjs.com/
