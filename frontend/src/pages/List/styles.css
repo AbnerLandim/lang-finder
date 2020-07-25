@@ -59,6 +59,7 @@
     padding-bottom: 20px;
     display: inline-block;
     width: 100%;
+    max-width: 660px;
     height: 80%;
     max-height: 360px;
 }

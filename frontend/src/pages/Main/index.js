@@ -34,64 +34,64 @@ export default function Main() {
     return (
         <div className='main-container'>
             <div className="content-container">
+                <div>
+                    <header>
+                        <img src={Logo} />
+                        <span>Lang Finder</span>
+                    </header>
 
-                <header>
-                    <img src={Logo} />
-                    <span>Lang Finder</span>
-                </header>
+                    <div className='message-container'>
+                        <span>Search for any language you'd like to see projects about, so we can show you repositories containing them.</span>
+                    </div>
 
-                <div className='message-container'>
-                    <span>Search for any language you'd like to see projects about, so we can show you repositories containing them.</span>
+                    <form className='control-container' onSubmit={search}>
+                        <input
+                            placeholder="Search language..."
+                            onChange={e => setLang(e.target.value.replace(/[~`!@#$%^&()_={}[\]:;,.<>+\/?-]/g,"").toLowerCase().split(" ")[0])}
+                            required
+                        />
+                        <button type='submit'>
+                            <FaSistrix size={18} color='#ffffff' />
+                        </button>
+                    </form>
+
+                    {
+                        sorry ?
+                            (
+                                <div className='sorry-msg'><span>There is no match for your search.</span></div>
+                            ) : (
+                                <div><span></span></div>
+                            )
+                    }
+
+                    <div className='footer-div'>
+                        <a href='https://github.com/AbnerLandim' target='_blank'>
+                            <FaGithubAlt size={18} color='#000000' />
+                        </a>
+                        <a href='https://www.linkedin.com/in/abner-landim-siqueira' target='_blank'>
+                            <FaLinkedin size={18} color='#000000' />
+                        </a>
+                        <a href='mailto:abner.landim340@gmail.com' target='_blank'>
+                            <FaEnvelope size={18} color='#000000' />
+                        </a>
+                    </div>
+
+                    {
+                        isLoading ? (
+
+                            <div className='loading'>
+                                <Loading
+                                    type={'spinningBubbles'}
+                                    color={'#ffffff'}
+                                    height={'6%'}
+                                    width={'6%'}
+                                />
+                            </div>
+                        ) : (
+                                <div><span></span></div>
+                            )
+                    }
                 </div>
-
-                <form className='control-container' onSubmit={search}>
-                    <input
-                        placeholder="Search language..."
-                        onChange={e => setLang(e.target.value)}
-                        required
-                    />
-                    <button type='submit'>
-                        <FaSistrix size={18} color='#ffffff' />
-                    </button>
-                </form>
-
-                {
-                    sorry ?
-                    (
-                        <div className='sorry-msg'><span>There is no match for your search.</span></div>
-                    ) : (
-                        <div><span></span></div>
-                    )
-                }
-
-                <div className='footer-div'>
-                    <a href='https://github.com/AbnerLandim' target='_blank'>
-                        <FaGithubAlt size={18} color='#000000' />
-                    </a>
-                    <a href='https://www.linkedin.com/in/abner-landim-siqueira' target='_blank'>
-                        <FaLinkedin size={18} color='#000000' />
-                    </a>
-                    <a href='mailto:abner.landim340@gmail.com' target='_blank'>
-                        <FaEnvelope size={18} color='#000000' />
-                    </a>
-                </div>
-
-                {
-                    isLoading ? (
-                       
-                        <div className='loading'>
-                            <Loading
-                                type={'spinningBubbles'}
-                                color={'#ffffff'}
-                                height={'6%'}
-                                width={'6%'}
-                            />
-                        </div>
-                    ) : (
-                        <div><span></span></div>
-                    )
-                }
-
             </div>
         </div>
     );
