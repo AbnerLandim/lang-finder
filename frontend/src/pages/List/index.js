@@ -3,33 +3,29 @@ import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiStar } from 'react-icons/fi';
 import Loading from 'react-loading';
 import './styles.css';
-import api from '../../services/api';
 
 export default function List() {
 
-    const [repos, setRepos] = useState([]);
     const [lang, setLang] = useState('');
-    const [page, setPage] = useState(1);
+    const [currentData, setCurrentDataData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [sorry, setSorry] = useState(false);
+    const [offset, setOffset] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
+    const [currPage, setCurrPage] = useState(0);
 
     const language = localStorage.getItem('language');
+    const repositories = localStorage.getItem('repositories');
 
     useEffect(() => {
+
         setIsLoading(true);
-        api.get('repositories/' + language + '/' + page)
-            .then(response => {
+        setLang(language);
+        setCurrentDataData(JSON.parse(repositories).slice(offset, offset + 5));
+        setIsLoading(false);
+        setPageCount(Object.keys(JSON.parse(repositories)).length / 5);
+        offset > 4 ? setCurrPage(parseInt((offset) / 5) + 1) : setCurrPage(parseInt(offset) + 1)
 
-                setRepos(response.data);   
-                setIsLoading(false);  
-                setLang(language);
-
-            }).catch(function (error) {
-                setLang('Not found');
-                setSorry(true);
-            })
-            
-    }, [page, lang]);
+    }, [offset, lang]);
 
     return (
         <div className='outer-container'>
@@ -38,44 +34,47 @@ export default function List() {
                 Back
             </Link>
             <header>
-                <span className='title-decor'>{'<'}</span><span>{lang}</span><span className='title-decor'>{'>'}</span>
+                <span className='title-decor'>{'<'}</span>
+                <span>{lang}</span>
+                <span className='title-decor'>{'>'}</span>
             </header>
             <span id='subtitle'>Repositories:</span>
             <div className='repo-container'>
 
                 {
                     isLoading ? (
-                        [!sorry ? (
-                            <div className='loading'>
-                                <Loading
-                                    type={'spinningBubbles'}
-                                    color={'#ffffff'}
-                                    height={'6%'}
-                                    width={'6%'}
-                                />
-                            </div>
 
-                        ) : (
-                                <div className='sorry-msg'><span>There is no match for your search.</span></div>
-                            )]
+                        <div className='loading'>
+                            <Loading
+                                type={'spinningBubbles'}
+                                color={'#ffffff'}
+                                height={'6%'}
+                                width={'6%'}
+                            />
+                        </div>
                     ) : (
                             <ul>
                                 {
-                                    repos.map(repo => (
-                                        <a href={repo.url} className='hyperlink' target="_blank">
+                                    currentData.map(curr => (
+                                        <a href={curr.url} className='hyperlink' target="_blank">
                                             <li>
                                                 <section>
-                                                    <img src={repo.avatar_url} />
-                                                    <span>{repo.full_name}</span>
+                                                    <img src={curr.avatar_url} />
+                                                    <span>{curr.full_name}</span>
                                                 </section>
                                                 <section>
-                                                    <a href={repo.url + '/stargazers'} className='hyperlink' target="_blank">
+                                                    <a
+                                                        href={curr.url + '/stargazers'}
+                                                        className='hyperlink'
+                                                        target="_blank">
+
                                                         <div className='stars-div'>
                                                             <FiStar size={12} color="#FFFFFF" />
-                                                            <span>{repo.stars_count}</span>
+                                                            <span>{curr.stars_count}</span>
                                                         </div>
+
                                                     </a>
-                                                    <span id='description'>{repo.description}</span>
+                                                    <span id='description'>{curr.description}</span>
                                                 </section>
                                             </li>
                                         </a>
@@ -87,41 +86,48 @@ export default function List() {
 
                 <div className='footer-container'>
                     {
-                        page > 1 ?
+                        offset > 4 ?
                             (
                                 <div>
                                     <button
-                                        onClick={() => setPage(parseInt(page) - 1)}
+                                        onClick={() => setOffset(parseInt(offset) - 5)}
                                         className='prev-button'>
                                         Prev
                                     </button>
-                                    <input
-                                        placeholder='page'
-                                        value={page}
-                                        onChange={e => setPage(e.target.value)}
-                                    />
-                                    <button
-                                        onClick={() => setPage(parseInt(page) + 1)}
-                                        className='next-button'>
-                                        Next
-                                    </button>
-                                </div>
+                                    <label>
+                                        {parseInt((offset) / 5) + 1} / {pageCount}
+                                    </label>
+                                    {
+                                        currPage === pageCount ?
+                                            (
+                                                <button
+                                                    disabled
+                                                    onClick={() => setOffset(parseInt(offset) + 5)}
+                                                    className='next-button'>
+                                                    Next
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    onClick={() => setOffset(parseInt(offset) + 5)}
+                                                    className='next-button'>
+                                                    Next
+                                                </button>)
+                                    }
 
+                                </div>
                             ) : (
                                 <div>
                                     <button
                                         disabled
-                                        onClick={() => setPage(parseInt(page) - 1)}
+                                        onClick={() => setOffset(parseInt(offset) - 5)}
                                         className='prev-button'>
                                         Prev
                                     </button>
-                                    <input
-                                        placeholder='page'
-                                        value={page}
-                                        onChange={e => setPage(e.target.value)}
-                                    />
+                                    <label>
+                                        {parseInt(offset) + 1} / {pageCount}
+                                    </label>
                                     <button
-                                        onClick={() => setPage(parseInt(page) + 1)}
+                                        onClick={() => setOffset(parseInt(offset) + 5)}
                                         className='next-button'>
                                         Next
                                     </button>

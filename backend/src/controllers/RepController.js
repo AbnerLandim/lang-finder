@@ -4,10 +4,9 @@ module.exports = {
 
     async index(req, res) {
         try {
-            const page = req.params["page"];
             const language = req.params["language"];
 
-            const data = await api.get('https://api.github.com/search/repositories?q=language:'+language+'&order=desc&per_page=5&page='+page);
+            const data = await api.get(`https://api.github.com/search/repositories?q=language:${language}&order=desc&sort=stars&per_page=100`);
 
             const response = data.data["items"].map(item => {
                 return {
@@ -23,7 +22,6 @@ module.exports = {
 
         } catch (error) {
             console.error(error);
-            //res.status(404).send("Oh uh, something went wrong");
             return res.status(404).json( {'message':'There is no match for your search.'} );
         }
     }

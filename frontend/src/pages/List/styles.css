@@ -183,24 +183,19 @@
     color: #535353;
 }
 
-.outer-container .footer-container input {
+.outer-container .footer-container label {
     width: 50px;
     height: 30px;
     text-align: center;
-    border: 1px solid #535353;
+    border: none;
     border-radius: 2px;
-    background-color: #585858;
+    background-color: #444444;
+    font-weight: 500;
     color: #d8d8d8;
+    padding: 5px;
 }
 
 .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sorry-msg {
-    color: #dfdfdf;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './styles.css';
+import api from '../../services/api';
 import Logo from '../../assets/github-logo.svg';
+import Loading from 'react-loading';
 import { FaSistrix, FaGithubAlt, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 export default function Main() {
 
     const [lang, setLang] = useState('');
+    const [sorry, setSorry] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const history = new useHistory();
 
     function search(e) {
         e.preventDefault();
-        localStorage.setItem('language', lang);
-        history.push('list');
+
+        localStorage.clear();
+        setIsLoading(true);
+        setSorry(false);
+        api.get(`repositories/${lang}`)
+            .then(res => {
+                localStorage.setItem('repositories', JSON.stringify(res.data));
+                localStorage.setItem('language', lang);
+                setIsLoading(false);
+                history.push('list');
+            }).catch(function (error) {
+                setIsLoading(false);
+                setSorry(true);
+            })
     }
 
     return (
@@ -39,6 +55,15 @@ export default function Main() {
                     </button>
                 </form>
 
+                {
+                    sorry ?
+                    (
+                        <div className='sorry-msg'><span>There is no match for your search.</span></div>
+                    ) : (
+                        <div><span></span></div>
+                    )
+                }
+
                 <div className='footer-div'>
                     <a href='https://github.com/AbnerLandim' target='_blank'>
                         <FaGithubAlt size={18} color='#000000' />
@@ -50,6 +75,22 @@ export default function Main() {
                         <FaEnvelope size={18} color='#000000' />
                     </a>
                 </div>
+
+                {
+                    isLoading ? (
+                       
+                        <div className='loading'>
+                            <Loading
+                                type={'spinningBubbles'}
+                                color={'#ffffff'}
+                                height={'6%'}
+                                width={'6%'}
+                            />
+                        </div>
+                    ) : (
+                        <div><span></span></div>
+                    )
+                }
 
             </div>
         </div>

@@ -5,6 +5,7 @@
     width: 40vw;
     max-width: 640px;
     height: 42vh;
+    min-height: 300px;
     max-height: 400px;
     transform: translate(-50%, -50%);
     background: #3f3f3f;
@@ -101,4 +102,19 @@
 .footer-div a {
     margin-left: 8px;
     margin-right: 8px;
+}
+
+.sorry-msg {
+    color: #dfdfdf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.loading {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
