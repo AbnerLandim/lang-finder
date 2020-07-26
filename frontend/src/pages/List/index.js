@@ -22,7 +22,7 @@ export default function List() {
         setLang(language);
         setCurrentDataData(JSON.parse(repositories).slice(offset, offset + 5));
         setIsLoading(false);
-        setPageCount(Object.keys(JSON.parse(repositories)).length / 5);
+        setPageCount(Math.ceil(Object.keys(JSON.parse(repositories)).length / 5));
         offset > 4 ? setCurrPage(parseInt((offset) / 5) + 1) : setCurrPage(parseInt(offset) + 1)
 
     }, [offset, lang]);
@@ -57,10 +57,10 @@ export default function List() {
                                 {
                                     currentData.map(curr => (
                                         <a href={curr.url} className='hyperlink' target="_blank">
-                                            <li>
+                                            <li key={curr.full_name}>
                                                 <section>
                                                     <img src={curr.avatar_url} />
-                                                    <span>{curr.full_name}</span>
+                                                    <span id='full-name'>{curr.full_name}</span>
                                                 </section>
                                                 <section>
                                                     <a
@@ -126,11 +126,22 @@ export default function List() {
                                     <label>
                                         {parseInt(offset) + 1} / {pageCount}
                                     </label>
-                                    <button
-                                        onClick={() => setOffset(parseInt(offset) + 5)}
-                                        className='next-button'>
-                                        Next
-                                    </button>
+                                    {
+                                        currPage === pageCount ?
+                                            (
+                                                <button
+                                                    disabled
+                                                    onClick={() => setOffset(parseInt(offset) + 5)}
+                                                    className='next-button'>
+                                                    Next
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    onClick={() => setOffset(parseInt(offset) + 5)}
+                                                    className='next-button'>
+                                                    Next
+                                                </button>)
+                                    }
                                 </div>
                             )
                     }

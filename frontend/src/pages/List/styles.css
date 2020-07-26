@@ -87,6 +87,7 @@
     font-weight: 500;
     font-size: 1vw;
     color: white;
+    margin-left: 5px;
 }
 
 .outer-container .repo-container img {
@@ -124,10 +125,14 @@
     box-shadow: 0 2px 4px 0 rgba(128, 128, 128, 0.2), 0 3px 10px 0 rgba(128, 128, 128, 0.19);   
 }
 
-.outer-container .repo-container section span {
+#full-name {
     font-weight: 500;
     color: #bdbdbd;
     margin-left: 18px;
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #description {

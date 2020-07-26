@@ -26,6 +26,7 @@ export default function Main() {
                 setIsLoading(false);
                 history.push('list');
             }).catch(function (error) {
+                console.log(error);
                 setIsLoading(false);
                 setSorry(true);
             })
@@ -47,8 +48,9 @@ export default function Main() {
                     <form className='control-container' onSubmit={search}>
                         <input
                             placeholder="Search language..."
-                            onChange={e => setLang(e.target.value.replace(/[~`!@#$%^&()_={}[\]:;,.<>+\/?-]/g,"").toLowerCase().split(" ")[0])}
+                            onChange={e => setLang(e.target.value.replace(/[~`!@#$%^&()_={}[\]:;,.<>+\/?-]/g, "").toLowerCase().split(" ")[0])}
                             required
+                            autofocus
                         />
                         <button type='submit'>
                             <FaSistrix size={18} color='#ffffff' />
