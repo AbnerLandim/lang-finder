@@ -60,7 +60,7 @@ export default function List() {
                                             <li key={curr.full_name}>
                                                 <section>
                                                     <img src={curr.avatar_url} />
-                                                    <span id='full-name'>{curr.full_name}</span>
+                                                    <span title={curr.full_name} id='full-name'>{curr.full_name}</span>
                                                 </section>
                                                 <section>
                                                     <a
@@ -74,7 +74,7 @@ export default function List() {
                                                         </div>
 
                                                     </a>
-                                                    <span id='description'>{curr.description}</span>
+                                                    <span title={curr.description} id='description'>{curr.description}</span>
                                                 </section>
                                             </li>
                                         </a>
