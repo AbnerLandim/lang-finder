@@ -245,5 +245,13 @@
         width: 25px;
         height: 25px;
         border-radius: 25px;
-    }    
+    }
+    
+    .outer-container .footer-container .next-button {
+        margin-left: 4vw;
+    }
+
+    .outer-container .footer-container .prev-button {
+        margin-right: 4vw;
+    }
 }
