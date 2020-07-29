@@ -25,7 +25,7 @@ export default function List() {
         setPageCount(Math.ceil(Object.keys(JSON.parse(repositories)).length / 5));
         offset > 4 ? setCurrPage(parseInt((offset) / 5) + 1) : setCurrPage(parseInt(offset) + 1)
 
-    }, [offset, lang]);
+    }, [offset, lang, language, repositories]);
 
     return (
         <div className='outer-container'>
@@ -56,17 +56,18 @@ export default function List() {
                             <ul>
                                 {
                                     currentData.map(curr => (
-                                        <a href={curr.url} className='hyperlink' target="_blank">
+                                        <a href={curr.url} className='hyperlink' target="_blank" rel="noopener noreferrer">
                                             <li key={curr.full_name}>
                                                 <section>
-                                                    <img src={curr.avatar_url} />
+                                                    <img src={curr.avatar_url} alt='avatar pic'/>
                                                     <span title={curr.full_name} id='full-name'>{curr.full_name}</span>
                                                 </section>
                                                 <section>
                                                     <a
                                                         href={curr.url + '/stargazers'}
                                                         className='hyperlink'
-                                                        target="_blank">
+                                                        target="_blank"
+                                                        rel="noopener noreferrer">
 
                                                         <div className='stars-div'>
                                                             <FiStar size={12} color="#FFFFFF" />

@@ -37,7 +37,7 @@ export default function Main() {
             <div className="content-container">
                 <div>
                     <header>
-                        <img src={Logo} />
+                        <img src={Logo} alt='lang-finder logo' />
                         <span>Lang Finder</span>
                     </header>
 
@@ -48,7 +48,7 @@ export default function Main() {
                     <form className='control-container' onSubmit={search}>
                         <input
                             placeholder="Search language..."
-                            onChange={e => setLang(e.target.value.replace(/[~`!@#$%^&()_={}[\]:;,.<>+\/?-]/g, "").toLowerCase().split(" ")[0])}
+                            onChange={e => setLang(e.target.value.replace(/[~`!@#$%^&()_={}[\]:;,.<>+?-]/g, "").toLowerCase().split(" ")[0])}
                             required
                             autofocus
                         />
@@ -67,13 +67,13 @@ export default function Main() {
                     }
 
                     <div className='footer-div'>
-                        <a href='https://github.com/AbnerLandim' target='_blank'>
+                        <a href='https://github.com/AbnerLandim' target='_blank' rel="noopener noreferrer">
                             <FaGithubAlt size={18} color='#000000' />
                         </a>
-                        <a href='https://www.linkedin.com/in/abner-landim-siqueira' target='_blank'>
+                        <a href='https://www.linkedin.com/in/abner-landim-siqueira' target='_blank' rel="noopener noreferrer">
                             <FaLinkedin size={18} color='#000000' />
                         </a>
-                        <a href='mailto:abner.landim340@gmail.com' target='_blank'>
+                        <a href='mailto:abner.landim340@gmail.com' target='_blank' rel="noopener noreferrer">
                             <FaEnvelope size={18} color='#000000' />
                         </a>
                     </div>

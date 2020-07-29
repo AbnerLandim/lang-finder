@@ -123,3 +123,46 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 600px) {
+    .main-container {
+        width: 80vw;
+        height: 72vw;
+    }
+
+    .main-container .content-container {
+        padding: 10px;
+    }
+
+    .message-container {
+        display: block;
+        margin: 0 auto;
+        font-size: 12px;
+    }
+
+    .control-container {
+        margin-top: 25px;
+    }
+
+    .control-container input{
+        width: 90%;  
+    }
+
+    .main-container .content-container header span {
+        font-size: 32px;
+        margin-left: 10px;
+    }
+
+    .main-container .content-container header img {
+        width: 20%;
+        height: 20%;
+    }
+
+    .main-container .content-container header {
+        width: 70vw;
+    }
+
+    .sorry-msg {
+        font-size: 10px;
+    }
+}

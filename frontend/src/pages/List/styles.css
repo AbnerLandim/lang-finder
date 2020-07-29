@@ -206,3 +206,44 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 600px) {
+    .outer-container {
+        width: 80vw;
+        height: 80vh;
+    }
+
+    .outer-container .repo-container ul li section {
+        width: 25vw;
+    }
+
+    #full-name {
+        width: 130px;
+        margin-left: 10px;
+    }
+
+    .outer-container .repo-container .stars-div span {
+        font-size: 10px;
+    }
+
+    .outer-container .repo-container ul li {
+        justify-content: left;
+    }
+
+    .outer-container .repo-container ul li section {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    #description {
+        font-size: 10px;
+        margin-left: 8px;
+        width: 100%;
+    }
+
+    .outer-container .repo-container img {
+        width: 25px;
+        height: 25px;
+        border-radius: 25px;
+    }    
+}
